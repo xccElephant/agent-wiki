@@ -1,0 +1,14 @@
+---
+description: Quality checks for synthesized wiki content
+alwaysApply: true
+---
+
+# LLM Wiki Quality
+
+- Distinguish `Fact`, `Inference`, `Dispute`, and `Open Question` in wiki pages.
+- Important claims should point to a supporting `wiki/source-notes/` page and, when helpful, the corresponding `raw/` file.
+- Do not merge conflicting sources into one smooth narrative without naming the disagreement.
+- Prefer updating backlinks and related links when creating a new concept, entity, or synthesis page.
+- Flag stale conclusions when newer sources supersede them.
+- Watch for orphan pages, broken wikilinks, missing source notes, and duplicated concepts.
+- Keep synthesis pages focused on cross-source understanding, not raw note dumps.
