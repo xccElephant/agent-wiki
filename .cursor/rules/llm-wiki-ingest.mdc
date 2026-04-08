@@ -1,0 +1,15 @@
+---
+description: Source ingest workflow for the LLM Wiki
+alwaysApply: true
+---
+
+# LLM Wiki Ingest
+
+- Start every ingest from a file in `raw/`.
+- Preserve the raw file as-is; add interpretation in `wiki/`, not in `raw/`.
+- For each source, create or update a matching note in `wiki/source-notes/`.
+- In each source note, record the raw path, summary, key claims, evidence, related entities, related concepts, disputes, and open questions.
+- Update downstream pages in `wiki/entities/`, `wiki/concepts/`, and `wiki/synthesis/` when the source changes the current understanding.
+- Add durable pages and important source notes to `wiki/index.md`.
+- Append a short ingest entry to `logs/log.md`.
+- If evidence is mixed or weak, mark it as `Inference` or `Dispute` instead of presenting it as settled fact.

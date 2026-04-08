@@ -1,0 +1,14 @@
+---
+description: LLM Wiki folder and page placement rules
+alwaysApply: true
+---
+
+# LLM Wiki Structure
+
+- Treat `raw/` as the immutable source layer.
+- Keep original source documents in `raw/articles/` and attachments in `raw/assets/`.
+- Store one derived note per source in `wiki/source-notes/`.
+- Put durable topic pages in `wiki/entities/`, `wiki/concepts/`, or `wiki/synthesis/`.
+- Do not silently convert raw files into wiki pages. Create a derived page instead.
+- Update `wiki/index.md` when adding a durable wiki page.
+- Keep `logs/log.md` append-only for ingests, lint passes, and major analyses.

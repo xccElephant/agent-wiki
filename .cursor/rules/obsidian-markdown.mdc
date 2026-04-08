@@ -1,0 +1,14 @@
+---
+description: Obsidian Markdown conventions for this vault
+globs: **/*.md
+alwaysApply: false
+---
+
+# Obsidian Markdown
+
+- Use frontmatter for new notes when metadata is useful.
+- Use `[[wikilinks]]` for internal vault references.
+- Use standard Markdown links only for external URLs.
+- Prefer stable file names over cosmetic renames.
+- Use clear headings and short callouts for disputes or open questions.
+- For new wiki pages, link to related source notes, concepts, entities, or syntheses so graph and backlinks stay useful.
