@@ -36,34 +36,18 @@ Separate these categories whenever possible:
 
 ## Ingest Workflow
 
-1. Identify the source file in `raw/articles/` or `raw/assets/`.
-2. Create or update a matching note in `wiki/source-notes/`.
-3. Extract summary, key claims, notable evidence, related entities, related concepts, disputes, and open questions.
-4. Update affected pages in `wiki/entities/`, `wiki/concepts/`, and `wiki/synthesis/`.
-5. Refresh `wiki/index.md`.
-6. Append an entry to `logs/log.md`.
-
-## Default "Update Wiki" Behavior
-
-When the user gives a broad instruction such as:
-
-- "I added some articles, please update the wiki."
-- "Process the new sources."
-- "Update the wiki with the latest raw files."
-
-interpret it as a batch ingest request unless the user says otherwise.
-
-In that case:
-
-1. Scan `raw/articles/` for candidate sources.
-2. Determine which sources are not yet ingested.
-3. For each new source, create or update a matching note in `wiki/source-notes/`.
-4. Update affected pages in `wiki/entities/`, `wiki/concepts/`, and `wiki/synthesis/`.
-5. Refresh `wiki/index.md` when new durable pages are added.
-6. Append a batch entry to `logs/log.md`.
-7. Run a light lint pass on the touched wiki pages.
-
-Treat a source as already ingested when a corresponding source note already exists and clearly points back to the raw file. Use `raw_path` or an equivalent explicit reference when available. If the state is ambiguous, prefer updating the existing source note instead of creating a duplicate.
+1. Determine which sources to ingest.
+2. If the user explicitly names source files, use those files only.
+3. Otherwise, discover candidate sources in `raw/articles/` or `raw/assets/` and decide which ones are new or need updating.
+4. Match each selected source against existing notes in `wiki/source-notes/`.
+5. Treat a source as already ingested when a corresponding source note clearly points back to the raw file, ideally through `raw_path` or an equivalent explicit reference.
+6. Prefer updating an existing source note instead of creating a duplicate when the mapping is clear.
+7. Create or update the matching note in `wiki/source-notes/`.
+8. Extract summary, key claims, notable evidence, related entities, related concepts, disputes, and open questions.
+9. Update affected pages in `wiki/entities/`, `wiki/concepts/`, and `wiki/synthesis/`.
+10. Refresh `wiki/index.md` when new durable pages are added.
+11. Append an entry to `logs/log.md`.
+12. When multiple or auto-discovered sources were processed, append a concise batch summary and run a light lint pass on the touched wiki pages.
 
 ## Query Workflow
 
