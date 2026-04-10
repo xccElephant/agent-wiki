@@ -16,6 +16,22 @@ tags:
 5. Refresh [[wiki/index|LLM Wiki Index]].
 6. Append a short record to [[logs/log|Log]].
 
+## Batch Ingest
+
+When the user asks to "update the wiki" after adding new raw sources, treat it as a batch ingest operation.
+
+Recommended behavior:
+
+1. Scan `raw/articles/` for recently added or not-yet-ingested sources.
+2. Match each raw source against existing notes in `wiki/source-notes/`.
+3. Consider a source already ingested if an existing source note clearly references the raw file, ideally through `raw_path` or an equivalent explicit link.
+4. Update existing source notes when possible instead of creating duplicates.
+5. Create missing source notes for newly discovered sources.
+6. Update affected entity, concept, and synthesis pages.
+7. Refresh [[wiki/index|LLM Wiki Index]] if new durable pages are added.
+8. Append a batch summary to [[logs/log|Log]].
+9. Run a light lint pass on touched pages for broken links, duplicate concepts, and unsupported claims.
+
 ## Query
 
 1. Read `wiki/index.md` and the most relevant wiki pages.
