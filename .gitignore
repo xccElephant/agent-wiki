@@ -4,7 +4,16 @@
 !CLAUDE.md
 !LICENSE
 !README.md
+!README_zh.md
 !install.sh
+# Keep promo assets explicit so the repo stays template-only by default.
+!assets/
+assets/*
+!assets/obsidian-graph-view.png
+!docs/
+# Keep packaging docs explicit for the same reason.
+docs/*
+!docs/github-metadata.md
 !.cursor/
 !.cursor/rules/
 !.cursor/rules/*.mdc
